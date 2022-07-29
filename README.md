@@ -1,6 +1,37 @@
 ## proftpd
 
 
+
+Spanish AND English:
+
+
+SPANISH:
+Una instalación fácil de usar, con todas las funciones de ProFTPD.
+Configuraciones en variables de entorno
+
+### Uso
+
+cd docker
+sh setiplocallinux.sh
+docker-compose up -d
+
+Conectar a ftp con Usuario:user y Contraseña:password y la dirección ip de su equipo 192.168.x.x
+
+
+Para configurar una ip externa:
+crear archivo en la carpeta docker llamado .env con ip local o externa:
+PROFTPD_IP=yourIpLocalOrPublic
+
+Personalizaciones en el archivo proftpd.conf y también con volumenes apuntando a /etc/proftpd.d y /etc/proftpd/modules.d.
+
+Los permisos de archivo de linux se establecen en 666 que estan en el dockerfile con LOCAL_UMASK al colocar en esta variable 000 lo que hace proftpd para definirlos es restarlos a 666 por ende sería así 666-000=666, no se dejan con permisos de ejecución a los archivos para disminuir vulnerabilidades 
+
+
+Gracias por usar esto cualquier mejora por favor indicarla en los issue de github y al correo andresgarcia0313@gmail.com
+
+
+ENGLISH:
+
 An easy-to-use, tiny yet full-featured installation of ProFTPD.
 
 Fork of instantlinux/docker-tools, but without secret, all in environment variable (less secure, but for other workflow)
