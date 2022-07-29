@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  ftp:
+    build: .
+    environment:
+      PASV_ADDRESS: ${PROFTPD_IP}
+      #TZ: UTC default
+      #TZ: America/Bogota
+    volumes:
+    - ../ftp:/home/user
+    ports:
+    - ${PORT_PROFTPD:-21}:21
+    - "30091-30100:30091-30100"
